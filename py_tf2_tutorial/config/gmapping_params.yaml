@@ -1,5 +1,6 @@
-map_update_interval: 2.0
-maxUrange: 3.0
+map_update_interval: 0.5
+maxUrange: 5.5
+maxRange: 6.1
 sigma: 0.05
 kernelSize: 1
 lstep: 0.05
@@ -13,9 +14,9 @@ srr: 0.1
 srt: 0.2
 str: 0.1
 stt: 0.2
-linearUpdate: 1.0
-angularUpdate: 0.2
-temporalUpdate: 0.5
+linearUpdate: 0.3
+angularUpdate: 0.5
+temporalUpdate: 2.0
 resampleThreshold: 0.5
 particles: 100
 xmin: -10.0
