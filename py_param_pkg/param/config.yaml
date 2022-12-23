@@ -1,0 +1,5 @@
+str_param: "yaml string"
+int_param: 9
+double_param: 2.71828
+bool_param: "false"
+list_of_float_param: [3., 2., 1.]

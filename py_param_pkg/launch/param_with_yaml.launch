@@ -1,0 +1,6 @@
+<launch>
+  <node name="various_param_node" pkg="py_param_pkg" type="various_params.py" respawn="false" output="screen" >
+    <rosparam command="load" file="$(find py_param_pkg)/param/config.yaml" />
+    <param name="str_param" type="string" value="roslaunch changed me" /> 
+  </node>
+</launch>
