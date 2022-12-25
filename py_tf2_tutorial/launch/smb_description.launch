@@ -1,0 +1,23 @@
+<launch>
+  <arg name="simulation" 			    default="false"/>
+  <arg name="robot_namespace" 		default=""/>
+  <arg name="enable_ekf" 			    default="false"/>
+  <arg name="robot_description"  	default="robot_description"/>
+  <arg name="description_file"    default="$(find smb_description)/urdf/smb_standalone.urdf.xacro"/>
+
+  <!-- Load robot description -->
+    <!-- Load robot description for gazebo -->
+  <include file="$(find smb_description)/launch/load.launch">
+    <arg name="simulation"       value="$(arg simulation)"/>
+    <arg name="description_name" value="$(arg robot_description)"/>
+    <arg name="description_file" value="$(arg description_file)"/>
+    <arg name="wheel_joint_type" value="continuous"/>
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="TRUE"/>
+  </node>
+
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/> -->
+</launch>
