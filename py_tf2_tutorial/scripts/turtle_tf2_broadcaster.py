@@ -18,6 +18,8 @@ def handle_turtle_pose(msg, turtlename):
     t = geometry_msgs.msg.TransformStamped()
 
     t.header.stamp = rospy.Time.now()
+    # Experiment, Late tf2
+    # t.header.stamp = rospy.Time.now() - rospy.Duration(60)
     t.header.frame_id = "world"
     
     t.child_frame_id = turtlename
@@ -38,7 +40,7 @@ def handle_turtle_pose(msg, turtlename):
 
 if __name__ == '__main__':
     rospy.init_node('tf2_turtle_broadcaster')
-    turtlename = rospy.get_param('~turtle')
+    turtlename = rospy.get_param('~turtle', 'turtle1')
     # turtlename = 'turtle1'
 
     # The node subscribes to topic "turtleX/pose" 
