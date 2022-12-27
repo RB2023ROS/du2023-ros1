@@ -1,0 +1,4 @@
+string command
+uint8 seconds
+---
+bool success
