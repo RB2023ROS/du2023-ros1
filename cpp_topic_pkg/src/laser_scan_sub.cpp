@@ -11,7 +11,16 @@ private:
 public:
     LaserSubNode(ros::NodeHandle *nh) {
         ROS_INFO("Publisher and Subscriber initialized");
-        laser_sub_ = nh->subscribe("scan", 10, &LaserSubNode::laserSubCallback, this);
+        // TCPROS
+        // laser_sub_ = nh->subscribe("scan", 10, &LaserSubNode::laserSubCallback, this);
+        // UDPROS
+        laser_sub_ = nh->subscribe("scan", 10, &LaserSubNode::laserSubCallback, this,
+                ros::TransportHints()
+                    .unreliable()
+                    .reliable()
+                    .maxDatagramSize(1000)
+                    .tcpNoDelay()
+            );
     }
 
     void laserSubCallback(const sensor_msgs::LaserScan &data){

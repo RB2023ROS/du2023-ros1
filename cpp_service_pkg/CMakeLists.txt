@@ -9,9 +9,11 @@ project(cpp_service_pkg)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
-  roscpp
+  gazebo_msgs
   sensor_msgs
   std_msgs
+  roscpp
+  roslib
 )
 
 ## System dependencies are found with CMake's conventions
@@ -205,3 +207,15 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+add_executable(emergency_stop src/emergency_stop.cpp)
+add_dependencies(emergency_stop ${emergency_stop_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(emergency_stop
+  ${catkin_LIBRARIES}
+)
+
+add_executable(spawn_model_client src/spawn_model_client.cpp)
+add_dependencies(spawn_model_client ${spawn_model_client_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(spawn_model_client
+    ${catkin_LIBRARIES}
+)
