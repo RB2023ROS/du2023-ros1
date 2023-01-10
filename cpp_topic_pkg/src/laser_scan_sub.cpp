@@ -23,13 +23,13 @@ public:
             );
     }
 
-    void laserSubCallback(const sensor_msgs::LaserScan &data){
+    void laserSubCallback(const sensor_msgs::LaserScanConstPtr data){
         
-        ROS_INFO_STREAM("data.ranges[0]: " << data.ranges[0]);
-        ROS_INFO_STREAM("data.ranges[90]: " << data.ranges[90]);
-        ROS_INFO_STREAM("data.ranges[179]: " << data.ranges[179]);
-        ROS_INFO_STREAM("data.ranges[270]: " << data.ranges[270]);
-        ROS_INFO_STREAM("data.ranges[360]: " << data.ranges[360]);
+        ROS_INFO_STREAM("data.ranges[0]: " << data->ranges[0]);
+        ROS_INFO_STREAM("data.ranges[90]: " << data->ranges[90]);
+        ROS_INFO_STREAM("data.ranges[179]: " << data->ranges[179]);
+        ROS_INFO_STREAM("data.ranges[270]: " << data->ranges[270]);
+        ROS_INFO_STREAM("data.ranges[360]: " << data->ranges[360]);
         // std::cout << std::to_string(data.ranges[0]) << std::endl;
 
         ROS_INFO("Publisher and Subscriber initialized");
